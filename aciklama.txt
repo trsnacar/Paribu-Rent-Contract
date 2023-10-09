@@ -1,0 +1,25 @@
+KiralamaKontrati Akıllı Sözleşmesi Açıklaması
+
+Bu sözleşme, Ethereum blokzinciri üzerinde çalıştırılmak üzere Solidity dilinde yazılmış bir akıllı sözleşmedir. Sözleşmenin ana amacı, ev ve dükkan gibi mülklerin kiralama işlemlerini yönetmektir.
+
+1. Değişkenler ve Yapılar:
+
+MulkTipi: Mülklerin türünü belirleyen bir sıralayıcıdır (enum). İki farklı tür barındırır: Ev ve Dukkan.
+MulkSahibi: Mülk sahibinin bilgilerini saklamak için bir yapıdır (struct). Bu yapı içinde sahip adresi, isim, mülk türü ve mülk adresi gibi bilgiler bulunmaktadır.
+Kiralama: Kiralama işlemine dair bilgileri saklamak için bir yapıdır. Kiralanan mülk türü, mülk adresi, kiracı adresi, kiralama başlangıç ve bitiş tarihi gibi bilgileri içerir.
+2. Fonksiyonlar:
+
+mulkEkle: Mülk sahiplerinin kendi mülklerini sisteme eklemelerini sağlar. Mülk sahibinin ismi, mülk türü ve mülk adresi bilgileri bu fonksiyon aracılığıyla kaydedilir.
+
+mulkKirala: Kullanıcıların belirli bir mülkü kiralamalarını sağlar. Kiralama işlemi gerçekleştiğinde, kiralama bilgileri (başlangıç ve bitiş tarihi gibi) kaydedilir.
+
+kiralamaSonlandir: Mülk sahiplerinin kiralama işlemini sonlandırmalarını sağlar. Bu fonksiyon, sadece mülk sahibi tarafından çağrılabilir.
+
+sorunBildir: Kiracıların, kiraladıkları mülkle ilgili bir sorun yaşamaları durumunda bu sorunu bildirebilmeleri için kullanılır.
+
+3. Modifiers (Değiştiriciler):
+
+sadeceSahip: Bu değiştirici, belirli fonksiyonların sadece mülk sahibi tarafından çağrılmasını sağlar. Eğer mülk sahibi değilse, işlem gerçekleştirilmez.
+4. Olaylar (Events):
+
+SorunBildirildi: Kiracının bir sorunu bildirdiğinde tetiklenir. Bu, dış uygulamaların veya kullanıcıların bu tür olaylara tepki verebilmeleri için kullanışlıdır.
